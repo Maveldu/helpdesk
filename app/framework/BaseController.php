@@ -17,9 +17,10 @@ abstract class BaseController {
 
 	public function loadView($viewName,$pData="",$asString=false){
 		global $config;
-		$data=$pData;
 		if(is_array($pData)){
 			extract($pData);
+		}else{
+			$data=$pData;
 		}
 		$fileName="views/".$viewName.".php";
 		if(file_exists($fileName)){

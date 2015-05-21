@@ -1,5 +1,5 @@
 <?php
-class User extends Base{
+class User extends Base {
 	/**
 	 * @Id
 	 */
@@ -8,6 +8,8 @@ class User extends Base{
 	private $password="";
 	private $mail="";
 	private $admin=false;
+
+	
 
 	public function getId() {
 		return $this->id;
@@ -61,4 +63,4 @@ class User extends Base{
 		}
 		return $this->mail. "-".$this->login." (".$uType.")";
 	}
-}
+}	

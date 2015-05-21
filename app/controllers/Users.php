@@ -6,7 +6,7 @@ class Users extends \_DefaultController {
 		$this->model="User";
 	}
 
-	public function frm($id=NULL){
+	public function CreerUser($id=NULL){
 		$user=$this->getInstance($id);
 		$this->loadView("user/vAdd",array("user"=>$user));
 	}
