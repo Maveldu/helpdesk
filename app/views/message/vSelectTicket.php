@@ -3,9 +3,6 @@ error_reporting(0);
 if ($_SESSION["user"]==''){
 	echo "<div class='alert alert-danger'>Vous devez &ecirc;tre connect&eacute;s pour poster un message</div>";
 }
-?>
-
-<?php
 if (isset($_POST['idTicket'])) {
 	$ticketselection=$_POST['idTicket'];
 	header('Location: '.$ticketselection);

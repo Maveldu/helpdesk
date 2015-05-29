@@ -1,10 +1,5 @@
 <?php
 error_reporting(1);
-echo $ticket;
-$ticket=DAO::getOne("Ticket",$ticket->getId());
-error_reporting(1);
-$messages=DAO::getAll("Message","idTicket=".$ticket->getId()." order by date asc");
-$nbmessages=count($messages);
 ?>
 
 <div class='panel panel-primary'>
@@ -35,8 +30,7 @@ $nbmessages=count($messages);
 	</div>
 	<table class='table table-striped'>
 		<tbody>
-		<?php 
-		$userActuel=Auth::getUser();
+		<?php
 		foreach ($messages as $message)	{
 			echo"
 				<tr>
@@ -55,7 +49,7 @@ $nbmessages=count($messages);
 			;
 			if ($userActuel==$message->getUser()) {
 				echo "	
-						<a class='btn btn-primary' href='".$config["siteUrl"]."Messages/delete".$message->getId()."' style='width:150px;margin-top:25px;margin-left:10px;float:right;'>
+						<a class='btn btn-primary' href='".$config["siteUrl"]."Messages/delete/".$message->getId()."' style='width:150px;margin-top:25px;margin-left:10px;float:right;'>
 							Supprimer
 						</a>
 						<a class='btn btn-primary' href='".$config["siteUrl"]."Messages/frm/".$ticket->getId()."/".$message->getId()."' style='width:150px;margin-top:25px;float:right;'>

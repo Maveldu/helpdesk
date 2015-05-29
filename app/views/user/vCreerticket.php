@@ -5,9 +5,7 @@ if ($_SESSION["user"]==''){
 }
 ?>
 <form method='post' action='Tickets/update'>
-	<input class='form-control' type="hidden" name="id" value="<?php echo $ticket->getId()?>">
-	<input class='form-control' type="hidden" name="idStatut" value="1">
-	<input class='form-control' type="hidden" name="idUser" value="<?php Auth::getUser();?>">
+	<input class='form-control' type="hidden" name="id" value="">
 	<div class='breadcrumb'><br/>
 		<select class='form-control' name='type'>
 			<?php echo Gui::select(array("Demande","Incident"),$ticket->getType(),"S&eacute;lectionnez un type...")?>
@@ -28,7 +26,7 @@ if ($_SESSION["user"]==''){
 		Utilisateur :<br/>
 		<input class='form-control' type='text' value='<?php echo Auth::getUser();?>' style='margin:5px;' size=99 readonly/><br/>
 		Date :<br/>
-		<input class='form-control' type='text' value='<?php $ticket->setDateCreation("date('Y-m-d')"); echo date('Y-m-d');?>' style='margin:5px;' readonly/><br/>
+		<input class='form-control' type='text' value='<?php echo date('Y-m-d');?>' style='margin:5px;' readonly/><br/>
 		Statut :<br/>
 		<input class='form-control' type='text' value='Nouveau' style='margin:5px;' readonly/><br/>
 		<input class='btn btn-primary' type='submit' value='Envoyer' style='width:150px;'/><br/>

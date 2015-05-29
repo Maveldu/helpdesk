@@ -7,29 +7,43 @@ class Messages extends \_DefaultController {
 
 
 	public function frm($params=NULL){
+		$userActuel=Auth::getUser();
 		$id=$params[0];
-		$idmessage=null;
 		if ($id) {
-			$ticket=$this->getInstance($id);
+			$ticket=DAO::getOne("Ticket",$id);
 		}
 		else {
-			$ticket=0;
+			$ticket=null;
 		}
 		$this->loadView("message/vSelectTicket",array("ticket"=>$ticket));
 		if ($id) {
-			$this->loadView("message/vMessages",array("ticket"=>$ticket));
+			$messages=DAO::getAll("Message","idTicket=".$ticket->getId()." order by date asc");
+			$nbmessages=count($messages);
+			$this->loadView("message/vMessages",array("ticket"=>$ticket,"userActuel"=>$userActuel,"messages"=>$messages,"nbmessages"=>$nbmessages));
+			if (isset($params[1])) {
+				$idedit=$params[1];
+				$messageedit=$this->getInstance($idedit);
+				$this->loadView("message/vEdition",array("ticket"=>$ticket,"messageedit"=>$messageedit));
+			}
+			else {
+				$this->loadView("message/vAdd",array("ticket"=>$ticket));
+			}
 		}
-		if (isset($params[1])) {
-			$idedit=$params[1];
-			$messageedit=$this->getInstance($idedit);
-			$this->loadView("message/vEdition",array("ticket"=>$ticket,"messageedit"=>$messageedit));
-		}
-		else {
-			$this->loadView("message/vAdd",array("ticket"=>$ticket,"idmessage"=>$idmessage));
-		}
-	
-	
 	}
-
+	protected function setValuesToObject(&$object) {
+		parent::setValuesToObject($object);
+		$object->setContenu($_POST["contenu"]);
+		$object->setUser(Auth::getUser());
+		$object->setTicket(DAO::getOne("Ticket",$_POST["idTicket"]));
+		
+		
+//		if(isset($_POST["idCategorie"])){
+//			$cat=DAO::getOne("Categorie", $_POST["idCategorie"]);
+//			$object->setCategorie($cat);
+//		}
+//		$object->setUser(Auth::getUser());
+//		$statut=DAO::getOne("Statut",1);
+//		$object->setStatut($statut);
+	}
 }	
 ?>
