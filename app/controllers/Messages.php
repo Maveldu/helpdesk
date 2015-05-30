@@ -35,15 +35,6 @@ class Messages extends \_DefaultController {
 		$object->setContenu($_POST["contenu"]);
 		$object->setUser(Auth::getUser());
 		$object->setTicket(DAO::getOne("Ticket",$_POST["idTicket"]));
-		
-		
-//		if(isset($_POST["idCategorie"])){
-//			$cat=DAO::getOne("Categorie", $_POST["idCategorie"]);
-//			$object->setCategorie($cat);
-//		}
-//		$object->setUser(Auth::getUser());
-//		$statut=DAO::getOne("Statut",1);
-//		$object->setStatut($statut);
 	}
 }	
 ?>

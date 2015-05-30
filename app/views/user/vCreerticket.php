@@ -1,7 +1,7 @@
 <?php 
 error_reporting(0);
 if ($_SESSION["user"]==''){
-	echo "<div class='alert alert-danger'>Vous devez &ecirc;tre connect&eacute;s pour poster un ticket</div>";
+	echo "<div class='alert alert-danger'>Vous devez &ecirc;tre connect&eacute; pour poster un ticket</div>";
 }
 ?>
 <form method='post' action='Tickets/update'>

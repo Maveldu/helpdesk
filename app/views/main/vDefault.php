@@ -1,26 +1,105 @@
+<?php
 
-	<div class="container">
-	<div class="well well-lg">
-		<fieldset>
-			<legend>Données</legend>
-			<a class="btn btn-link" href="#">Accueil</a>
-			<a class="btn btn-default" href="users">Utilisateurs</a>
-			<a class="btn btn-primary" href="categories">Catégories</a>
-			<a class="btn btn-info" href="tickets">Tickets</a>
-			<a class="btn btn-success" href="statuts">Statuts</a>
-			<a class="btn btn-warning" href="faqs">Faq</a>
-			<a class="btn btn-danger" href="messages">Messages</a>
-			<a class="btn btn-danger" href="tickets/messages/1">Messages d'un ticket</a>
-		</fieldset>
-		<fieldset>
-			<legend>Connexion</legend>
-				<a class="btn btn-default" href="defaultc/asAdmin">Connexion en tant qu'admin</a>
-				<a class="btn btn-default" href="defaultc/asUser">Connexion en tant que user</a>
-				<a class="btn btn-warning" href="defaultc/disconnect">Déconnexion</a>
-		</fieldset>
-		<fieldset>
-			<legend>CkEditor</legend>
-				<a class="btn btn-link" href="defaultc/ckEditorSample">Exemple ckEditor</a>
-		</fieldset>
+
+
+
+
+?>
+<div class="container">
+	<div class='panel panel-info'>
+		<div class='panel-heading'>
+			<h2 class='panel-title' style='height:18px;'>
+				<span style='float:left;'>
+					Mes tickets
+				</span>
+				<span style='float:right;'>
+					Nombre
+				</span>
+			</h2>
+		</div>
+		<div class='panel-body'>
+			<table class='table'>
+				<tr>
+					<td>
+						<div style='float:left;'>
+							Nouveau
+						</div>
+						<div style='float:right;'>
+							<?php echo $nouveau;?>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class='table table-striped'>
+				<tr>
+					<td>
+						<div style='float:left;'>
+							Attribu&eacute;
+						</div>
+						<div style='float:right;'>
+							<?php echo $attribue;?>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class='table table-striped'>
+				<tr>
+					<td>
+						<div style='float:left;'>
+							R&eacute;solu
+						</div>
+						<div style='float:right;'>
+							<?php echo $resolu;?>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
+	<a class="btn btn-default" style='margin-bottom:16px;' href="tickets/frm">Cr&eacute;er un ticket</a>
+	<div class='panel panel-primary'>
+		<div class='panel-heading'>
+			<h2 class='panel-title' style='height:18px;'>
+				Base de connaissances : sujets les plus r&eacute;cents
+			</h2>
+		</div>
+		<div class='panel-body'>
+			<table class='table'>
+				<tr>
+					<td>
+						<a href='faqs/showOne/<?php echo $articles[0]->getId()?>' style='float:left;'>
+							<?php echo $articles[0]->getTitre();?>
+						</a>
+						<div style='float:right;'>
+							<?php echo $articles[0]->getDateCreation();?>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class='table table-striped'>
+				<tr>
+					<td>
+						<a href='faqs/showOne/<?php echo $articles[1]->getId()?>' style='float:left;'>
+							<?php echo $articles[1]->getTitre();?>
+						</a>
+						<div style='float:right;'>
+							<?php echo $articles[1]->getDateCreation();?>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class='table table-striped'>
+				<tr>
+					<td>
+						<a href='faqs/showOne/<?php echo $articles[2]->getId()?>' style='float:left;'>
+							<?php echo $articles[2]->getTitre();?>
+						</a>
+						<div style='float:right;'>
+							<?php echo $articles[2]->getDateCreation();?>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

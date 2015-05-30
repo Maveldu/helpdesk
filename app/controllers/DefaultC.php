@@ -3,7 +3,20 @@ class DefaultC extends \BaseController {
 
 	public function index() {
 		$this->loadView("main/vHeader",array("infoUser"=>Auth::getInfoUser()));
-		$this->loadView("main/vDefault");
+		if (isset($_SESSION["user"])) {
+			$articles=DAO::getAll("faq","id!=0 order by dateCreation desc");
+			$idUser=Auth::getUser()->getId();
+			$conditionNouveau="idStatut=1 and idUser=".$idUser;
+			$conditionAttribue="idStatut=2 and idUser=".$idUser;
+			$conditionResolu="idStatut=4 and idUser=".$idUser;
+			$nouveau=count(DAO::getAll("Ticket", $conditionNouveau));
+			$attribue=count(DAO::getAll("Ticket", $conditionAttribue));
+			$resolu=count(DAO::getAll("Ticket", $conditionResolu));
+			$this->loadView("main/vDefault",array("nouveau"=>$nouveau,"attribue"=>$attribue,"resolu"=>$resolu,"articles"=>$articles));
+		}
+		else {
+			$this->loadView("main/vDeco");
+		}
 		$this->loadView("main/vFooter");
 	}
 

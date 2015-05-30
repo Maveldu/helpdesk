@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 if ($_SESSION["user"]==''){
-	echo "<div class='alert alert-danger'>Vous devez &ecirc;tre connect&eacute;s pour poster un message</div>";
+	echo "<div class='alert alert-danger'>Vous devez &ecirc;tre connect&eacute; pour poster un message</div>";
 }
 if (isset($_POST['idTicket'])) {
 	$ticketselection=$_POST['idTicket'];

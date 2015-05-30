@@ -30,7 +30,7 @@
 					<li id='mainNav-navzone-1-li-1'><a id='mainNav-navzone-1-link-1'
 						href="tickets/frm">Créer un ticket</a></li>
 					<li id='mainNav-navzone-1-li-2'><a id='mainNav-navzone-1-link-2'
-						href="tickets">Tickets</a></li>
+						href="Messages/frm">Tickets</a></li>
 					<li id='mainNav-navzone-1-li-3'><a id='mainNav-navzone-1-link-3'
 						href="#">Foire aux questions</a></li>
 				</ul>
