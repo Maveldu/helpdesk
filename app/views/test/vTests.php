@@ -7,7 +7,7 @@
 			<legend>Module report d'incidents</legend>
 			<a class="btn btn-info" href="Tickets/frm">Cr&eacute;er un ticket</a>
 			<a class="btn btn-info" href="Messages/frm">Echanger sur un ticket...</a>
-			<a class="btn btn-info" href="Tickets">Modifier le statut d'un ticket...</a>
+			<a class="btn btn-info" href="Tickets/changerStatut">Modifier le statut d'un ticket...</a>
 		</fieldset>
 		<fieldset>
 			<legend>Module base de connaissances</legend>

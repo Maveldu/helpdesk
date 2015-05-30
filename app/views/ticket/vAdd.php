@@ -1,8 +1,5 @@
 <?php 
 error_reporting(0);
-if ($_SESSION["user"]==''){
-	echo "<div class='alert alert-danger'>Vous devez &ecirc;tre connect&eacute; pour poster un ticket</div>";
-}
 ?>
 <form method='post' action='Tickets/update'>
 	<input class='form-control' type="hidden" name="id" value="">
@@ -30,6 +27,7 @@ if ($_SESSION["user"]==''){
 		Statut :<br/>
 		<input class='form-control' type='text' value='Nouveau' style='margin:5px;' readonly/><br/>
 		<input class='btn btn-primary' type='submit' value='Envoyer' style='width:150px;'/><br/>
+		<input class='form-control' type="hidden" name="Statut" value="1">
 		<a class='btn btn-primary' href="<?php echo $config["siteUrl"]?>tickets" style='width:150px;margin-top:25px;'>
 			Annuler
 		</a><br/>

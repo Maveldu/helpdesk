@@ -5,10 +5,10 @@ if (isset($_POST['idTicket'])) {
 }
 ?>
 <div class='breadcrumb'>	
-	<form method='post' action='Messages/frm/'>
+	<form method='post' action='Tickets/changerStatut/'>
 		<select class='form-control' name='idTicket'>
 			<?php
-				echo Gui::select(DAO::getAll("Ticket"),$idTicket,"S&eacute;lectionnez un ticket...");
+				echo Gui::select(DAO::getAll("Ticket"),$ticket->getId(),"S&eacute;lectionnez un ticket...");
 			?>
 		</select>
 		<input class='btn btn-primary' type='submit' value='Selectionner le ticket' style='width:150px;margin-top:25px;'/>

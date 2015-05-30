@@ -25,14 +25,44 @@ class Tickets extends \_DefaultController {
 				})");
 		}
 	}
+	
 	public function frm($id=null){
-		$ticket=$this->getInstance($id);
-		$this->loadView("user/vCreerticket",array("ticket"=>$ticket));
+		if (isset($_SESSION["user"])){
+			$ticket=$this->getInstance($id);
+			$this->loadView("ticket/vAdd",array("ticket"=>$ticket));
+		}
+		else {
+			$this->loadView("ticket/vDeco");
+		}
 	}
+	
+	public function changerStatut($params=null){
+		if (Auth::isAdmin()){
+			$id=$params[0];
+			if ($id) {
+				$ticket=DAO::getOne("Ticket",$id);
+			}
+			else {
+				$ticket=null;
+			}
+			$this->loadView("statut/vSelectTicket",array("ticket"=>$ticket));
+			if ($ticket) {
+				$this->loadView("statut/vChangerStatut",array("ticket"=>$ticket));
+			}
+		}
+		else {
+			$this->loadView("statut/vDeco");
+		}
+	}
+	
+	
+	
 	
 	/* (non-PHPdoc)
 	 * @see _DefaultController::setValuesToObject()
 	 */
+	
+	
 	protected function setValuesToObject(&$object) {
 		parent::setValuesToObject($object);
 		if(isset($_POST["idCategorie"])){
@@ -40,7 +70,7 @@ class Tickets extends \_DefaultController {
 			$object->setCategorie($cat);
 		}
 		$object->setUser(Auth::getUser());
-		$statut=DAO::getOne("Statut",1);
+		$statut=DAO::getOne("Statut", $_POST["Statut"]);
 		$object->setStatut($statut);
 	}
 }
