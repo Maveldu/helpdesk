@@ -45,7 +45,7 @@ class Tickets extends \_DefaultController {
 			else {
 				$ticket=null;
 			}
-			$this->loadView("statut/vSelectTicket",array("ticket"=>$ticket));
+			$this->loadView("statut/vSelectTicket",array("ticket"=>$ticket,"idTicket"=>$id));
 			if ($ticket) {
 				$this->loadView("statut/vChangerStatut",array("ticket"=>$ticket));
 			}

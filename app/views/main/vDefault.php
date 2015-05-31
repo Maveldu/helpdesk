@@ -1,10 +1,3 @@
-<?php
-
-
-
-
-
-?>
 <div class="container">
 	<div class='panel panel-info'>
 		<div class='panel-heading'>
@@ -18,7 +11,7 @@
 			</h2>
 		</div>
 		<div class='panel-body'>
-			<table class='table'>
+			<table class='table table-striped'>
 				<tr>
 					<td>
 						<div style='float:left;'>
@@ -64,42 +57,28 @@
 			</h2>
 		</div>
 		<div class='panel-body'>
-			<table class='table'>
-				<tr>
-					<td>
-						<a href='faqs/showOne/<?php echo $articles[0]->getId()?>' style='float:left;'>
-							<?php echo $articles[0]->getTitre();?>
-						</a>
-						<div style='float:right;'>
-							<?php echo $articles[0]->getDateCreation();?>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<table class='table table-striped'>
-				<tr>
-					<td>
-						<a href='faqs/showOne/<?php echo $articles[1]->getId()?>' style='float:left;'>
-							<?php echo $articles[1]->getTitre();?>
-						</a>
-						<div style='float:right;'>
-							<?php echo $articles[1]->getDateCreation();?>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<table class='table table-striped'>
-				<tr>
-					<td>
-						<a href='faqs/showOne/<?php echo $articles[2]->getId()?>' style='float:left;'>
-							<?php echo $articles[2]->getTitre();?>
-						</a>
-						<div style='float:right;'>
-							<?php echo $articles[2]->getDateCreation();?>
-						</div>
-					</td>
-				</tr>
-			</table>
+			<?php
+			error_reporting(0);
+			$i=0;
+			while ($i <= 10){
+				echo "
+					<table class='table table-striped'>
+						<tr>
+							<td>
+								<a href='faqs/showOne/".$articles[$i]->getId()."' style='float:left;'>
+									".$articles[$i]->getTitre()."
+								</a>
+								<div style='float:right;'>
+									".$articles[$i]->getDateCreation()."
+								</div>
+							</td>
+						</tr>
+					</table>
+				";
+				$i+=1;
+			}
+			error_reporting(1);
+			?>
 		</div>
 	</div>
 </div>

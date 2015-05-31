@@ -1,6 +1,3 @@
-<?php 
-error_reporting(0);
-?>
 <form method='post' action='Tickets/update'>
 	<input class='form-control' type="hidden" name="id" value="">
 	<div class='breadcrumb'><br/>

@@ -6,12 +6,9 @@ class DefaultC extends \BaseController {
 		if (isset($_SESSION["user"])) {
 			$articles=DAO::getAll("faq","id!=0 order by dateCreation desc");
 			$idUser=Auth::getUser()->getId();
-			$conditionNouveau="idStatut=1 and idUser=".$idUser;
-			$conditionAttribue="idStatut=2 and idUser=".$idUser;
-			$conditionResolu="idStatut=4 and idUser=".$idUser;
-			$nouveau=count(DAO::getAll("Ticket", $conditionNouveau));
-			$attribue=count(DAO::getAll("Ticket", $conditionAttribue));
-			$resolu=count(DAO::getAll("Ticket", $conditionResolu));
+			$nouveau=count(DAO::getAll("Ticket","idStatut=1 and idUser=".$idUser));
+			$attribue=count(DAO::getAll("Ticket","idStatut=2 and idUser=".$idUser));
+			$resolu=count(DAO::getAll("Ticket","idStatut=4 and idUser=".$idUser));
 			$this->loadView("main/vDefault",array("nouveau"=>$nouveau,"attribue"=>$attribue,"resolu"=>$resolu,"articles"=>$articles));
 		}
 		else {
