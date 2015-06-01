@@ -4,16 +4,17 @@ class DefaultC extends \BaseController {
 	public function index() {
 		$this->loadView("main/vHeader",array("infoUser"=>Auth::getInfoUser()));
 		if (isset($_SESSION["user"])) {
-			$articles=DAO::getAll("faq","id!=0 order by dateCreation desc");
 			$idUser=Auth::getUser()->getId();
 			$nouveau=count(DAO::getAll("Ticket","idStatut=1 and idUser=".$idUser));
 			$attribue=count(DAO::getAll("Ticket","idStatut=2 and idUser=".$idUser));
 			$resolu=count(DAO::getAll("Ticket","idStatut=4 and idUser=".$idUser));
-			$this->loadView("main/vDefault",array("nouveau"=>$nouveau,"attribue"=>$attribue,"resolu"=>$resolu,"articles"=>$articles));
+			$this->loadView("main/vDefault",array("nouveau"=>$nouveau,"attribue"=>$attribue,"resolu"=>$resolu));
 		}
 		else {
 			$this->loadView("main/vDeco");
 		}
+		$articles=DAO::getAll("faq","id!=0 order by dateCreation desc");
+		$this->loadView("faq/vLesPlusRecents",array("articles"=>$articles));
 		$this->loadView("main/vFooter");
 	}
 

@@ -32,3 +32,33 @@ Pour accéder à la page de test des fonctionnalités implantés :
 [URL/IP du site]/[Chemin du projet]/tests
 Ce qui donne en local et avec le projet dans le dossier "helpdesk" :
 127.0.0.1/helpdesk/tests
+
+# Modifications apportées au projet
+
+
+Partie 1 : 
+
+
+1.1 : Ajout de la fonction Tickets/frm ainsi que de ses views ticket/vAdd et ticket/vDeco. Ajout également de la fonction SetValuesToObject pour les valeures popres au Ticket. 
+
+1.2 : Ajout de la fonction Messages/frm ainsi que de ses views message/vSelectTicket, message/vMessages, message/vEdition, message/vAdd et message/vDeco. Ajout également de la fonction SetValuesToObject pour les valeures popres au Message. 
+
+1.3 : Ajout de la fonction Tickets/changerStatut ainsi que de ses views statut/vSelectTicket, statut/vChangerStatut et statut/vDeco.
+
+
+Partie 2 : 
+
+
+2.1 : Ajout de la fonction Faqs/frm ainsi que de ses views faq/vAdd et faq/vDeco. Ajout également de la fonction SetValuesToObject pour les valeures popres à l'Article.
+
+2.2 : Ajout de la fonction Faqs/showAll ainsi que de ses views faq/vParCategories, faq/vLesPlusRecents et faq/vLesPlusPop.
+
+2.3 : Ajout de la fonction Faqs/showOne ainsi que sa view Faq/vShowOne
+
+
+Partie 3 : 
+
+
+3.1 : Modification de la fonction DefaultC/index et de sa view main/vDefault. Ajout de la view main/vDeco.
+
+3.2 : Ajout de la classe Tests, de sa fonction Tests/index ainsi que de sa view test/vTests.
