@@ -32,7 +32,7 @@ class _DefaultController extends \BaseController {
 
 	public function getInstance($id=NULL){
 		if(isset($id) && sizeof($id)>0){
-			$object=DAO::getOne($this->model, $id[0]);
+			$object=DAO::getOne($this->model, $id); // Modification de $id[0] en $id. Car sinon on ne prenait que le premier chiffre de l'id (par exemple 2 pour un id de 29)
 		}else{
 			$className=$this->model;
 			$object=new $className();
