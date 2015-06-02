@@ -25,13 +25,32 @@ Néanmoins, on peut dire que les modules 2.1 et 3.2 ont principalement été ré
 # Accès au projet :
 Pour accéder à la page d'accueil du projet :
 [URL/IP du site]/[Chemin du projet]/
-Ce qui donne en local et avec le projet dans le dossier "helpdesk" :
+Ce qui donne en local et avec le projet dans le dossier "helpdesk" : 
 127.0.0.1/helpdesk/
 
 Pour accéder à la page de test des fonctionnalités implantés :
 [URL/IP du site]/[Chemin du projet]/tests
-Ce qui donne en local et avec le projet dans le dossier "helpdesk" :
+Ce qui donne en local et avec le projet dans le dossier "helpdesk" : 
 127.0.0.1/helpdesk/tests
+
+Les liens de modules sont également les suivants :
+
+1.1 : 127.0.0.1/helpdesk/Tickets/frm
+
+1.2 : 127.0.0.1/helpdesk/Messages/frm
+
+1.3 : 127.0.0.1/helpdesk/Tickets/changerStatut
+
+2.1 : 127.0.0.1/helpdesk/Faqs/frm
+
+2.2 : 127.0.0.1/helpdesk/Faqs/showAll
+
+2.3 : 127.0.0.1/helpdesk/Faqs/showOne
+
+3.1 : 127.0.0.1/helpdesk/
+
+3.2 : 127.0.0.1/helpdesk/tests
+
 
 # Modifications apportées au projet
 

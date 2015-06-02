@@ -9,6 +9,9 @@ class DefaultC extends \BaseController {
 			$attribue=count(DAO::getAll("Ticket","idStatut=2 and idUser=".$idUser));
 			$resolu=count(DAO::getAll("Ticket","idStatut=4 and idUser=".$idUser));
 			$this->loadView("main/vDefault",array("nouveau"=>$nouveau,"attribue"=>$attribue,"resolu"=>$resolu));
+			if (Auth::isAdmin()) {
+				$this->loadView("main/vBoutonsAdmin");
+			}
 		}
 		else {
 			$this->loadView("main/vDeco");
