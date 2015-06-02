@@ -78,6 +78,6 @@ Partie 2 :
 Partie 3 : 
 
 
-3.1 : Modification de la fonction DefaultC/index et de sa view main/vDefault. Ajout de la view main/vDeco.
+3.1 : Modification de la fonction DefaultC/index et de ses views main/vDefault et main/vBoutonsAdmin. Ajout de la view main/vDeco.
 
 3.2 : Ajout de la classe Tests, de sa fonction Tests/index ainsi que de sa view test/vTests.
