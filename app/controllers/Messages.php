@@ -24,7 +24,7 @@ class Messages extends \_DefaultController {
 				$this->loadView("message/vMessages",array("ticket"=>$ticket,"userActuel"=>$userActuel,"messages"=>$messages,"nbmessages"=>$nbmessages));
 				if (isset($params[1])) {
 					$idedit=$params[1];
-					$messageedit=$this->getInstance($idedit);
+					$messageedit=DAO::getOne("Message",$idedit);
 					$this->loadView("message/vEdition",array("ticket"=>$ticket,"messageedit"=>$messageedit));
 				}
 				else {
