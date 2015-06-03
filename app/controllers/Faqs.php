@@ -7,8 +7,10 @@ class Faqs extends \_DefaultController {
 
 	public function frm($id=null){
 		if (Auth::isAdmin()){
+			$categories=DAO::getAll("Categorie");
 			$article=$this->getInstance($id);
-			$this->loadView("faq/vAdd",array("article"=>$article));
+			$userActuel=Auth::getUser();
+			$this->loadView("faq/vAdd",array("article"=>$article,"categories"=>$categories,"userActuel"=>$userActuel));
 		}
 		else {
 			$this->loadView("faq/vDeco");

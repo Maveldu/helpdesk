@@ -28,8 +28,10 @@ class Tickets extends \_DefaultController {
 	
 	public function frm($id=null){
 		if (isset($_SESSION["user"])){
+			$userActuel=Auth::getUser();
+			$categories=DAO::getAll("Categorie");
 			$ticket=$this->getInstance($id);
-			$this->loadView("ticket/vAdd",array("ticket"=>$ticket));
+			$this->loadView("ticket/vAdd",array("ticket"=>$ticket,"userActuel"=>$userActuel,"categories"=>$categories));
 		}
 		else {
 			$this->loadView("ticket/vDeco");
@@ -45,9 +47,11 @@ class Tickets extends \_DefaultController {
 			else {
 				$ticket=null;
 			}
-			$this->loadView("statut/vSelectTicket",array("ticket"=>$ticket,"idTicket"=>$id));
+			$tickets=DAO::getAll("Ticket");
+			$this->loadView("statut/vSelectTicket",array("ticket"=>$ticket,"idTicket"=>$id,"tickets"=>$tickets));
 			if ($ticket) {
-				$this->loadView("statut/vChangerStatut",array("ticket"=>$ticket));
+				$statuts=DAO::getAll("Statut");
+				$this->loadView("statut/vChangerStatut",array("ticket"=>$ticket,"statuts"=>$statuts));
 			}
 		}
 		else {

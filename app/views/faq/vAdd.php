@@ -2,7 +2,7 @@
 	<input class='form-control' type="hidden" name="id" value="">
 	<div class='breadcrumb'><br/>
 		<select class='form-control' name='idCategorie' size='1'>
-			 <?php echo Gui::select(DAO::getAll("Categorie"),$article->getCategorie(),"Sélectionner une catégorie parente...");?>
+			 <?php echo Gui::select($categories,$article->getCategorie(),"Sélectionner une catégorie parente...");?>
 		</select>
 	</div>
 	<div class='breadcrumb'>
@@ -16,7 +16,7 @@
 	</div>
 	<div class='breadcrumb'>
 		Utilisateur :<br/>
-		<input class='form-control' type='text' value='<?php echo Auth::getUser();?>' style='margin:5px;' size=99 readonly/><br/>
+		<input class='form-control' type='text' value='<?php echo $userActuel;?>' style='margin:5px;' size=99 readonly/><br/>
 		Date :<br/>
 		<input class='form-control' type='text' value='<?php echo date('Y-m-d');?>' style='margin:5px;' readonly/><br/>
 		Version :<br/>

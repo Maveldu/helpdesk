@@ -11,7 +11,7 @@ error_reporting(1);
 	<form method='post' action='Tickets/update'>
 		<input class='form-control' type="hidden" name="id" value="<?php echo $ticket->getId()?>">
 			<select class='form-control' name='Statut'>
-				<?php echo Gui::select(DAO::getAll("Statut"),$ticket->getStatut()->getId(),"Choisir un statut...");?>
+				<?php echo Gui::select($statuts,$ticket->getStatut()->getId(),"Choisir un statut...");?>
 			</select><br/>
 		<input class='btn btn-primary' type='submit' value='Modifier' style='width:150px;'/><br/>
 	</form>

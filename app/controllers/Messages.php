@@ -16,7 +16,8 @@ class Messages extends \_DefaultController {
 			else {
 				$ticket=null;
 			}
-			$this->loadView("message/vSelectTicket",array("ticket"=>$ticket,"idTicket"=>$id));
+			$tickets=DAO::getAll("Ticket");
+			$this->loadView("message/vSelectTicket",array("ticket"=>$ticket,"idTicket"=>$id,"tickets"=>$tickets));
 			if ($ticket) {
 				$messages=DAO::getAll("Message","idTicket=".$ticket->getId()." order by date asc");
 				$nbmessages=count($messages);
@@ -27,7 +28,7 @@ class Messages extends \_DefaultController {
 					$this->loadView("message/vEdition",array("ticket"=>$ticket,"messageedit"=>$messageedit));
 				}
 				else {
-					$this->loadView("message/vAdd",array("ticket"=>$ticket));
+					$this->loadView("message/vAdd",array("ticket"=>$ticket,"userActuel"=>$userActuel));
 				}
 			}
 		}
